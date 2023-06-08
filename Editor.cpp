@@ -2,6 +2,8 @@
 
 using std::string;
 
+//hola chantu
+
 Editor::Editor(const set<string> & conectivos) {
     /* Completar */
 }
