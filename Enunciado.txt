@@ -1,0 +1,14 @@
+2. Editor.h debe cumplir: 
+texto.size() >= 0 
+conectivos.size() >= 0 
+ longitud = texto.size() >= 0 
+ vocabulario = texto - conectivos  >= 0
+ conteo_palabra= longitud - conectivos >= 0 
+ Insertar palabras inserta en orden de oracion.
+ Agregar atras inserta al final, en orden.
+ borrar palabra.size() >= 0
+
+
+
+
+

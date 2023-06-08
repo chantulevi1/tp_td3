@@ -47,8 +47,17 @@ public:
 private:
     /* Completar */
     // conjuntos vacíos para devolver por referncia
-    const set<int> set_int_vacio;
-    const set<string> set_string_vacio;
+    const set<int> buscar_palabra;
+    const set<string> conectivos;
+    int longitud;
+    set<string> vocabulario;
+
+
+
+    
+
+
+
     
 };
 
