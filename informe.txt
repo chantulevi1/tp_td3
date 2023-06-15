@@ -1,0 +1,30 @@
+2. 
+Editor.h debe cumplir: 
+texto.size() >= 0 
+conectivos.size() >= 0 
+ longitud = texto.size() >= 0 
+ vocabulario = texto - conectivos  >= 0
+ conteo_palabra= longitud - conectivos >= 0 
+ Insertar palabras inserta en orden de oracion.
+ Agregar atras inserta al final, en orden.
+ 0<=pos<= _texto.size()
+
+
+ Ejemplo que cumple: 
+ texto = "Pedido de limpieza de vereda en la ciudad"
+ _texto = pedido; de; limpieza; vereda;en;la;ciudad
+ conectivos = "de", "para", "y" , "en" , "la" 
+ vocabulario = Pedido ; limpieza ; vereda ; ciudad
+ longitud = 8
+ conteo_palabra = 4
+ _texto.size() = 8
+ pos = 4
+ 
+Ejemplo que no cumple:
+texto = "Resumen Capa de Enlace" 
+conectivos = "de"
+vocabulario = "casa", "gato","jardin" 
+longitud = -8
+conteo_palabras = -2
+ _texto.size() = 4
+ pos = -9

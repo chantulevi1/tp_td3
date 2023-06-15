@@ -1,58 +1,81 @@
 #include "Editor.h"
+#include <string>
+#include<vector>
+#include <sstream>
 
+using namespace std;
+using std::string;
+using std::istringstream;
 using std::string;
 
-//hola chantu
 
 Editor::Editor(const set<string> & conectivos) {
-    /* Completar */
 }
 
 string Editor::texto() const {
-    /* Quitar este código y completar */
-    return "";
+   vector<std::string> _texto;
+    std::istringstream iss(texto);
+    while (iss >> (std::string palabra)) {
+            _texto.push_back(palabra);
+    }
+    
+    this->palabras = _texto;
+    return this->texto;
 }
 
 const set<string>& Editor::vocabulario() const {
-    /* Quitar este código y completar */
-    return set_string_vacio;
+    return vocabulario;
 }
 
 const set<string>& Editor::conectivos() const {
-    /* Quitar este código y completar */
-    return set_string_vacio;
+    
+    return conectivos;
 }
 
 int Editor::conteo_palabras() const { 
     /* Quitar este código y completar */
-	return 0; 
+    return  (longitud - conectivos.size()); 
 }
 
 int Editor::longitud() const { 
-    /* Quitar este código y completar */
-	return 0; 
+	return longitud ; 
 }
 
 void Editor::agregar_atras(const string& oracion) {
-    /* Completar */
+    if(texto.end()){
+        texto.push_back(oracion)
+    }
 }
-
 const set<int> & Editor::buscar_palabra(const string& palabra) const {
-    /* Quitar este código y completar */
+    //busqueda_binaria???
     return set_int_vacio;
 }
 
 void Editor::insertar_palabras(const string& oracion, int pos) {
-    /* Completar */
+    texto[pos].push_back(oracion);
 }
 
 void Editor::borrar_posicion(int pos) {
-    /* Completar */
+        _texto.erase(_texto.begin() + pos);
+   
 }
 
+
 int Editor::borrar_palabra(const string& palabra) {
-    /* Quitar este código y completar */
-    return 0;
+    
+    int borrar_palabra(const std::string& palabra) {
+        int count = 0;
+        auto it = _texto.begin();
+        while (it != _texto.end()) {
+            if (*it == palabra) {
+                it = _texto.erase(it);
+                ++count;
+            } else {
+                ++it;
+            }
+        }
+        return count;
+    }
 }
 
 void Editor::reemplazar_palabra(const string& palabra1, const string& palabra2) {

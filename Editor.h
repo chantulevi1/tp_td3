@@ -3,6 +3,7 @@
 
 #include <set>
 #include <string>
+
 /* agregar includes que sean necesarios */
 
 using namespace std;
@@ -29,7 +30,7 @@ public:
     // cantidad de palabras del texto               
     int longitud() const;                                       // O(1)
 
-    // obtiene posiciones de la palabra en el texto
+    // obtiene posiciones de la palabra en el texto, busqueda binaria?
     const set<int> & buscar_palabra(const string& palabra) const;               // O(log M)
 
     // agrega una palabra en una posición, desplazando a las restantes
@@ -47,19 +48,14 @@ public:
 private:
     /* Completar */
     // conjuntos vacíos para devolver por referncia
-    const set<int> buscar_palabra;
-    const set<string> conectivos;
+    set<int> buscar_palabra;
+    set<string> conectivos;
     int longitud;
+    set<string> hoja_blanca;
     set<string> vocabulario;
-
-
-
-    
-
-
-
+    std::string texto;
+    vector<string> _texto;
     
 };
-
 
 #endif // __EDITOR_H__
