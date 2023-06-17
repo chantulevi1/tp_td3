@@ -1,0 +1,50 @@
+[
+{
+  "directory": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe    -std=c++20 -g -std=gnu++20 -o CMakeFiles\\editor.dir\\editor_main.cpp.obj -c \"C:\\Users\\chant\\OneDrive\\Escritorio\\TD3\\TP Wurzel-Levi\\editor_main.cpp\"",
+  "file": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/editor_main.cpp",
+  "output": "CMakeFiles/editor.dir/editor_main.cpp.obj"
+},
+{
+  "directory": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe    -std=c++20 -g -std=gnu++20 -o CMakeFiles\\editor.dir\\Editor.cpp.obj -c \"C:\\Users\\chant\\OneDrive\\Escritorio\\TD3\\TP Wurzel-Levi\\Editor.cpp\"",
+  "file": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/Editor.cpp",
+  "output": "CMakeFiles/editor.dir/Editor.cpp.obj"
+},
+{
+  "directory": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/editor_tests.dir/includes_CXX.rsp  -std=c++20 -g -std=gnu++20 -o CMakeFiles\\editor_tests.dir\\editor_tests.cpp.obj -c \"C:\\Users\\chant\\OneDrive\\Escritorio\\TD3\\TP Wurzel-Levi\\editor_tests.cpp\"",
+  "file": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/editor_tests.cpp",
+  "output": "CMakeFiles/editor_tests.dir/editor_tests.cpp.obj"
+},
+{
+  "directory": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/editor_tests.dir/includes_CXX.rsp  -std=c++20 -g -std=gnu++20 -o CMakeFiles\\editor_tests.dir\\Editor.cpp.obj -c \"C:\\Users\\chant\\OneDrive\\Escritorio\\TD3\\TP Wurzel-Levi\\Editor.cpp\"",
+  "file": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/Editor.cpp",
+  "output": "CMakeFiles/editor_tests.dir/Editor.cpp.obj"
+},
+{
+  "directory": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/_deps/googletest-build/googlemock",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/gmock.dir/includes_CXX.rsp  -std=c++20 -g -std=gnu++20 -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles\\gmock.dir\\src\\gmock-all.cc.obj -c \"C:\\Users\\chant\\OneDrive\\Escritorio\\TD3\\TP Wurzel-Levi\\build\\_deps\\googletest-src\\googlemock\\src\\gmock-all.cc\"",
+  "file": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj"
+},
+{
+  "directory": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/_deps/googletest-build/googlemock",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/gmock_main.dir/includes_CXX.rsp  -std=c++20 -g -std=gnu++20 -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles\\gmock_main.dir\\src\\gmock_main.cc.obj -c \"C:\\Users\\chant\\OneDrive\\Escritorio\\TD3\\TP Wurzel-Levi\\build\\_deps\\googletest-src\\googlemock\\src\\gmock_main.cc\"",
+  "file": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj"
+},
+{
+  "directory": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/_deps/googletest-build/googletest",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/gtest.dir/includes_CXX.rsp  -std=c++20 -g -std=gnu++20 -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles\\gtest.dir\\src\\gtest-all.cc.obj -c \"C:\\Users\\chant\\OneDrive\\Escritorio\\TD3\\TP Wurzel-Levi\\build\\_deps\\googletest-src\\googletest\\src\\gtest-all.cc\"",
+  "file": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj"
+},
+{
+  "directory": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/_deps/googletest-build/googletest",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/gtest_main.dir/includes_CXX.rsp  -std=c++20 -g -std=gnu++20 -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles\\gtest_main.dir\\src\\gtest_main.cc.obj -c \"C:\\Users\\chant\\OneDrive\\Escritorio\\TD3\\TP Wurzel-Levi\\build\\_deps\\googletest-src\\googletest\\src\\gtest_main.cc\"",
+  "file": "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj"
+}
+]

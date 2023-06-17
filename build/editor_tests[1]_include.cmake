@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/editor_tests[1]_tests.cmake")
+  include("C:/Users/chant/OneDrive/Escritorio/TD3/TP Wurzel-Levi/build/editor_tests[1]_tests.cmake")
+else()
+  add_test(editor_tests_NOT_BUILT editor_tests_NOT_BUILT)
+endif()

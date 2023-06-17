@@ -3,7 +3,7 @@
 
 #include <set>
 #include <string>
-
+#include <vector>
 /* agregar includes que sean necesarios */
 
 using namespace std;
@@ -48,14 +48,12 @@ public:
 private:
     /* Completar */
     // conjuntos vacíos para devolver por referncia
-    set<int> buscar_palabra;
-    set<string> conectivos;
-    int longitud;
-    set<string> hoja_blanca;
-    set<string> vocabulario;
-    std::string texto;
+    set<string> _conectivos;
+    int _longitud;
+    set<string> _vocabulario;
     vector<string> _texto;
-    
+    string palabra;
+    int _conteo_palabras;
 };
 
 #endif // __EDITOR_H__
