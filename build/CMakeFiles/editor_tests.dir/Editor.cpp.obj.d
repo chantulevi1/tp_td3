@@ -115,6 +115,9 @@ CMakeFiles/editor_tests.dir/Editor.cpp.obj: \
  C:/msys64/mingw64/include/c++/13.1.0/bits/stl_vector.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/stl_bvector.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/vector.tcc \
+ C:/msys64/mingw64/include/c++/13.1.0/map \
+ C:/msys64/mingw64/include/c++/13.1.0/bits/stl_map.h \
+ C:/msys64/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
  C:/msys64/mingw64/include/c++/13.1.0/sstream \
  C:/msys64/mingw64/include/c++/13.1.0/istream \
  C:/msys64/mingw64/include/c++/13.1.0/ios \

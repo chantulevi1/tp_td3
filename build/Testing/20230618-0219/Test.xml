@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="Win32-mingw32-make"
-	BuildStamp="20230617-1730-Experimental"
+	BuildStamp="20230618-0219-Experimental"
 	Name="DESKTOP-L5KASJD"
 	Generator="ctest-3.27.0-rc2"
 	CompilerName="C:/msys64/mingw64/bin/g++.exe"
@@ -21,14 +21,14 @@
 	TotalVirtualMemory="18199"
 	TotalPhysicalMemory="7959"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="2631"
+	ProcessorClockFrequency="2496"
 	>
 	<Testing>
-		<StartDateTime>Jun 17 16:28 Argentina Standard Time</StartDateTime>
-		<StartTestTime>1687030139</StartTestTime>
+		<StartDateTime>Jun 17 23:42 Argentina Standard Time</StartDateTime>
+		<StartTestTime>1687056120</StartTestTime>
 		<TestList/>
-		<EndDateTime>Jun 17 16:28 Argentina Standard Time</EndDateTime>
-		<EndTestTime>1687030139</EndTestTime>
+		<EndDateTime>Jun 17 23:42 Argentina Standard Time</EndDateTime>
+		<EndTestTime>1687056120</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

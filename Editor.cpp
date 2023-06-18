@@ -9,14 +9,18 @@ using std::istringstream;
 using std::string;
 using std::set;
 
-
-
 Editor::Editor(const set<string> & conectivos) {
     _conteo_palabras = 0;
     this->_texto;
     _longitud = 0;
     conectivos;
-    _texto;
+    
+    // Utilizar la función dividir Texto para obtener el vector de palabras a partir del texto vacío
+    std::string textoVacio;
+    std::vector<std::string> palabras;
+
+    // Inicializar el vector _texto con las palabras obtenidas
+    _texto = palabras;
 }
 
 string Editor::texto() const {
@@ -71,22 +75,7 @@ vector<string> dividirTexto(const string texto) {
     }
 
 void Editor::agregar_atras(const string& oracion) {
-    // auto it = this->texto().begin();
-    // char separador = "\s";
-    // while(it < this->texto().end()) {
-        
-    //     palabra = this->texto().substr(*it, separador - *it);
-    //     this->_texto.push_back(palabra);
-    //     it = separador + 1;
-    // }
-    // if (it < _texto.end()) {
-    //     palabra = _texto.substr(begin);
-    //     _texto.push_back(palabra);
-    // }
-    // this->_texto;
-    // longitud = _texto.size()
-
-
+   
     vector<string> nuevasPalabras = dividirTexto(oracion);
     for (int i = 0; i< nuevasPalabras.size(); i++) {
         this->_texto.push_back(nuevasPalabras[i]);
@@ -106,8 +95,34 @@ void Editor::insertar_palabras(const string& oracion, int pos) {
 }
 
 void Editor::borrar_posicion(int pos) {
-        _texto.erase(_texto.begin() + pos);
+
+    //Pos: 0 =< posicion =< longitud()-1
+    //Post: se elimina la palabra ubicada en esa posicion del texto
+
+    // Eliminar la palabra en la posición pos del vocabulario
+    this->_vocabulario.erase(this->_texto[pos]);
+    // Eliminar la posición pos de la lista de posiciones asociadas a la palabra en la posición pos del texto
+    this->_posiciones[this->_texto[pos]].erase(pos);
+    // Eliminar la palabra en la posición pos del texto
+    this->_texto.erase(this->_texto.begin()+pos);
+    // Actualizar la longitud del texto
+    this->_longitud --;
+
+    // Verificar si la palabra eliminada está en el conjunto de conectivos y actualizar la cantidad de palabras si es necesario
+    if(this->_conectivos.find((this->_texto[pos]))!= this->_conectivos.end()){
+        this->_cant_de_palabras --;
+
+     // Actualizar las posiciones de las palabras que están después de la posición eliminada
+    for(int i = pos; i<this->_texto.size();i++){
+        set <int> posiciones = this->_posiciones[this->_texto[i]];
+        for (int posicion : posiciones){
+            this->_posiciones[this->_texto[i]].erase(posicion);
+            this->_posiciones[this->_texto[i]].insert(posicion - 1);
+        }
+    }
+
    
+}
 }
 
 int Editor::borrar_palabra(const string& palabra) {
@@ -124,9 +139,6 @@ int Editor::borrar_palabra(const string& palabra) {
     }
     return count;
 }
-
-
-
 
 void Editor::reemplazar_palabra(const string& palabra1, const string& palabra2) {
     /* Completar */

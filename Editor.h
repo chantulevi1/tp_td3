@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <map>
 /* agregar includes que sean necesarios */
 
 using namespace std;
@@ -54,6 +55,10 @@ private:
     vector<string> _texto;
     string palabra;
     int _conteo_palabras;
+    map<string, set<int>> _posiciones;  // Mapa de palabras y sus posiciones
+    int _cant_de_palabras;  // Cantidad total de palabras (excluyendo conectivos)
+
+    
 };
 
 #endif // __EDITOR_H__
