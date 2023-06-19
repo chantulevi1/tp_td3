@@ -1,30 +1,48 @@
 2. 
-Editor.h debe cumplir: 
-texto.size() >= 0 
-conectivos.size() >= 0 
- longitud = texto.size() >= 0 
- vocabulario = texto - conectivos  >= 0
- conteo_palabra= longitud - conectivos >= 0 
- Insertar palabras inserta en orden de oracion.
- Agregar atras inserta al final, en orden.
- 0<=pos<= _texto.size()
+Editor.h debe cumplir:
+La cantidad de elementos del conjunto conectivos debe mayor o igual a 0. 
+el numero longitud es igual a la cantidad de palabras que hay en el vector _texto y debe mayor o igual a 0.
+vocabulario son palabras que pertenecen a  _texto pero no a conectivos
+Los strings de _posiciones pertenecen al vector _texto
+pos es una posicion valida de _texto
+el numero de conteo_palabras es igual a  la cantidad de elementos de vocabulario
+la cantidad de elementos de _posiciones es mayor o igual a 0
+la cantidad de caracteres de texto es mayor o igual a 0
+la cantidad de elementos del vector _texto es mayor o igual a 0
+Todos los valores asociados a una clave de _posiciones, son posiciones del vector _texto donde se encuntran las palabras de _posiciones
 
+3.
 
+ |conectivos| >= 0 
+ longitud = |_texto| >= 0 
+ (forall i)(0<i<=|vocabulario|)(exists j)(0<j<|_texto|) and (vocabulario[i]=_texto[j]) and B(texto[j] perteneceA conectivos)=0
+ (forall i) (0<i<|_posiciones|) (exists j)(0<j< |_texto|) and (_posiciones.key[i]=_texto[j])
+ 0 <= pos < _texto.size()
+ _conteo_palabras = |vocabulario| >= 0 
+ |_texto| >= 0
+ |texto| >= 0
+ |_posiciones| >= 0 
+ (forall i)(0<i<|_texto|)(exists _posiciones.key) and (_texto[i] = _posiciones.key) 
+ and (forall j in set<values>)(exists _texto[j]) 
+
+ 
  Ejemplo que cumple: 
- texto = "Pedido de limpieza de vereda en la ciudad"
- _texto = pedido; de; limpieza; vereda;en;la;ciudad
- conectivos = "de", "para", "y" , "en" , "la" 
- vocabulario = Pedido ; limpieza ; vereda ; ciudad
+ texto = "pedido de limpieza de vereda en la ciudad"
+ _texto = {pedido; de ; limpieza ; ; de; vereda ; en ; la ; ciudad}
+ _posiciones = [{pedido, 0} ; {de , {1,3}} ; {limpieza, 2} ; {vereda, 4} {en, 5}; {la, 6}; {ciudad, 7}]
+ conectivos = {"de", "para", "y" , "en" , "la"}
+ vocabulario = {"pedido" ; "limpieza" ; "vereda" ; "ciudad"}
  longitud = 8
- conteo_palabra = 4
- _texto.size() = 8
+ conteo_palabras = 4
  pos = 4
+
  
 Ejemplo que no cumple:
-texto = "Resumen Capa de Enlace" 
+texto = "resumen capa de enlace" 
+_texto = {"resumen", "capa", "de", "enlace"}
+_posiciones = [{resumen, 0}; {capa, 1}; {de,2}; {enlace, 3}]
 conectivos = "de"
-vocabulario = "casa", "gato","jardin" 
+vocabulario = {"cami" ; "agustin" , "gervasio"; "valen"} 
 longitud = -8
-conteo_palabras = -2
- _texto.size() = 4
- pos = -9
+conteo_palabras = 4
+pos = 19

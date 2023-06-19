@@ -54,9 +54,9 @@ private:
     set<string> _vocabulario;
     vector<string> _texto;
     string palabra;
-    int _conteo_palabras;
-    std::unordered_map<std::string, std::set<int>> _posiciones;  // Mapa de palabras y sus posiciones
-    int _cant_de_palabras;  // Cantidad total de palabras (excluyendo conectivos)
+    int _conteo_palabras;// Cantidad total de palabras (excluyendo conectivos)
+    map<std::string, std::set<int>> _posiciones;  // Mapa de palabras y sus posiciones
+    
 
     
     //f auxiliar

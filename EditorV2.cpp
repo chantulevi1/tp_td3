@@ -8,6 +8,7 @@ using std::string;
 using std::istringstream;
 using std::string;
 using std::set;
+using std::map;
 
 
 
@@ -33,15 +34,15 @@ Editor::Editor(const set<string> & conectivos) { //O(|conectivos|)
 
 string Editor::texto() const { //O(N) N = cant de palabras totales (inclyendo repetidas) del texto
     //Devuelve el texto completo
-    string textoCompleto;
-    for (const string& palabra : _texto) {
+    string textoCompleto; //O(1)
+    for (const string& palabra : _texto) {  //O(N)
         textoCompleto += palabra + " ";
     }
     // Eliminar el último espacio en blanco agregado
-    if (!textoCompleto.empty()) {
-        textoCompleto.pop_back();
+    if (!textoCompleto.empty()) { //O(1)
+        textoCompleto.pop_back(); //O(1)
     }
-    return textoCompleto;
+    return textoCompleto; //O(1)
 
 }
 
@@ -49,12 +50,12 @@ const set<string>& Editor::vocabulario() const { //O(1)
     // Devuelve el conjunto de palabras no conectivas presentes en el texto
 
     //Pre: V
-    //Post: devuelve por ref el cjto de todas las palabras que aparecen alguna vez en el texto y que no estan en conectivos()
+    //Post: devuelve por ref el conjunto de todas las palabras que aparecen alguna vez en el texto y que no estan en conectivos()
 
     static set<string> palabrasNoConectivas;
 
     palabrasNoConectivas.clear();
-    for (const string& palabra : _vocabulario) {
+    for (const string& palabra : _vocabulario) {  
         if (_conectivos.find(palabra) == _conectivos.end()) {
             palabrasNoConectivas.insert(palabra);
         }
@@ -103,21 +104,21 @@ void Editor::agregar_atras(const string& oracion) { //O(|oracion| ∗ log M) M =
     //Pre: string oracion es una secuencia de palabras separadas por un espacio, sin signos de puntuacion y sin espacios al ppio/final
     //Post: se agregan todas las palabras al final del texto
 
-    vector<string> palabras = obtenerPalabras(oracion);
+    vector<string> palabras = obtenerPalabras(oracion); //O(oracion)
     size_t posicionInicial = _texto.size();
     //Agregar palabras al final del texto
     _texto.insert(_texto.end(), palabras.begin(), palabras.end());
 
     // Actualizar el vocabulario y la longitud del texto para que el conjunto refleje solo las palabras presentes en el texto actualizado
     _vocabulario.clear();
-    for (const std::string& palabra : _texto) {
-        _vocabulario.insert(palabra);
+    for (const std::string& palabra : _texto) {  //O(N)
+        _vocabulario.insert(palabra);  
     }
     _longitud = _texto.size();
 
     // Actualizar el conteo de palabras no conectivas
     int palabrasNoConectivas = 0;
-    for (const string& palabra : _texto) {
+    for (const string& palabra : _texto) {  //O(N)
         if (_conectivos.find(palabra) == _conectivos.end()) {
             palabrasNoConectivas++;
         }
@@ -125,12 +126,12 @@ void Editor::agregar_atras(const string& oracion) { //O(|oracion| ∗ log M) M =
     _conteo_palabras = palabrasNoConectivas;
 
     // Actualizar las posiciones de las nuevas palabras agregadas
-    for (size_t i = posicionInicial; i < _texto.size(); i++) {
+    for (size_t i = posicionInicial; i < _texto.size(); i++) { //O(N)
         const string& palabra = _texto[i];
         _posiciones[palabra].insert(i);
     }
 }
-
+// Complejidad = 3 * O(N)
 const set<int>& Editor::buscar_palabra(const string& palabra) const { //O(log M) M = cantidad de palabras diferentes escritas en el texto
     // Devuelve el conjunto de posiciones del texto donde aparece la palabra buscada
 
@@ -164,13 +165,13 @@ void Editor::insertar_palabras(const string& oracion, int pos) { //sin requerimi
 
     // Actualizar el vocabulario y la longitud del texto para que el conjunto refleje solo las palabras presentes en el texto actualizado
     _vocabulario.clear();
-    for (const std::string& palabra : _texto) {
+    for (const std::string& palabra : _texto) { //O(N)
         _vocabulario.insert(palabra);
     }
 
     // Actualizar el conteo de palabras no conectivas
     int palabrasNoConectivas = 0;
-    for (const string& palabra : _texto) {
+    for (const string& palabra : _texto) {  //O(N)
         if (_conectivos.find(palabra) == _conectivos.end()) {
             palabrasNoConectivas++;
         }
@@ -178,11 +179,11 @@ void Editor::insertar_palabras(const string& oracion, int pos) { //sin requerimi
     _conteo_palabras = palabrasNoConectivas;
 
     // Actualizar las posiciones de las nuevas palabras agregadas
-    for (auto& entry : _posiciones) {
+    for (auto& entry : _posiciones) {  //O(M)
         std::set<int>& posiciones = entry.second;
         std::set<int> PosicionesUpdateadas;
 
-        for (const int posicion : posiciones) {
+        for (const int posicion : posiciones) { //O(M)
             if (posicion >= pos) {
                 PosicionesUpdateadas.insert(posicion + palabras.size());
             } else {
@@ -193,7 +194,7 @@ void Editor::insertar_palabras(const string& oracion, int pos) { //sin requerimi
         posiciones = std::move(PosicionesUpdateadas);
     }
 
-    for (size_t i = 0; i < palabras.size(); ++i) {
+    for (size_t i = 0; i < palabras.size(); ++i) {  //O(|oracion|)
         _texto.insert(_texto.begin() + pos + i, palabras[i]);
 
         // Updatea mapa _posiciones para palabra insertada
@@ -202,25 +203,25 @@ void Editor::insertar_palabras(const string& oracion, int pos) { //sin requerimi
 
     // Actualizar el vocabulario y la longitud del texto para que el conjunto refleje solo las palabras presentes en el texto actualizado
     _vocabulario.clear();
-    for (const std::string& palabra : _texto) {
+    for (const std::string& palabra : _texto) { //O(N)
         _vocabulario.insert(palabra);
     }
     _longitud = _texto.size();
 
     // Actualizar el conteo de palabras no conectivas
     palabrasNoConectivas = 0;
-    for (const string& palabra : _texto) {
+    for (const string& palabra : _texto) { //O(N)
         if (_conectivos.find(palabra) == _conectivos.end()) {
             palabrasNoConectivas++;
         }
     }
     _conteo_palabras = palabrasNoConectivas;
 
-    //Complejidad -> O(long texto + cant elementos a insertar)
-    //ObtenerPalabras -> O(longitud texto)
-    //Insertar palabra -> O(cant de elementos a insertar)
-    //Actualizar vocab y long -> O(longitud texto)
-    //Actualizar conteo -> O(longitud texto)
+    //Complejidad -> O(4N + 2M + |oracion|)
+    //ObtenerPalabras -> O(N)
+    //Insertar palabra -> O(|oracion|)
+    //Actualizar vocab y long -> O(N)
+    //Actualizar conteo -> O(N)
 
 }
 
@@ -241,7 +242,7 @@ void Editor::borrar_posicion(int pos) { //sin requerimiento
 
     // Verificar si la palabra eliminada está en el conjunto de conectivos y actualizar la cantidad de palabras si es necesario
     if(this->_conectivos.find((this->_texto[pos]))!= this->_conectivos.end()){
-        this->_cant_de_palabras --;
+        this->_conteo_palabras --;
     }
 
     // Actualizar las posiciones de las palabras que están después de la posición eliminada
@@ -253,7 +254,7 @@ void Editor::borrar_posicion(int pos) { //sin requerimiento
         }
     }
 
-//  La complejidad algorítmica es O(long texto) porque recorre las palabras después de la posición eliminada y actualiza las posiciones en el mapa _posiciones.
+//  La complejidad algorítmica es O(N) porque recorre las palabras después de la posición eliminada y actualiza las posiciones en el mapa _posiciones.
 
    
 }
@@ -285,7 +286,7 @@ int Editor::borrar_palabra(const string& palabra) { //sin requerimiento
 
             // Verificar si la palabra eliminada está en el conjunto de conectivos y actualizar la cantidad de palabras si es necesario
             if (_conectivos.find(palabra) != _conectivos.end()) {
-                _cant_de_palabras--;
+                _conteo_palabras --;
             }
 
             // Actualizar las posiciones de las palabras que están antes de la posición eliminada
@@ -317,10 +318,10 @@ int Editor::borrar_palabra(const string& palabra) { //sin requerimiento
 
     return cantidadEliminada;
 
-    //Complejidad -> O(long texto * num de palabras a eliminar)
-    //Bucle for -> O(long texto)
+    //Complejidad -> O(N * |cantidadEliinada|)
+    //Bucle for -> O(N)
     //Comparacion actual con palabra a borrar -> O(1)
-    //Eliminacion y actualizacion -> O(numero de palabras a eliminar)
+    //Eliminacion y actualizacion -> O(|cantidadEliinada|)
 
 }
 

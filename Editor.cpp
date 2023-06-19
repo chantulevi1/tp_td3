@@ -10,9 +10,9 @@ using std::string;
 using std::set;
 
 Editor::Editor(const set<string> & conectivos) {
-    _conteo_palabras = 0;
-    this->_texto;
-    _longitud = 0;
+    _conteo_palabras = 0;  
+    this->_texto; 
+    _longitud = 0;  
     conectivos;
     
     // Utilizar la función dividir Texto para obtener el vector de palabras a partir del texto vacío
@@ -21,40 +21,41 @@ Editor::Editor(const set<string> & conectivos) {
 
     // Inicializar el vector _texto con las palabras obtenidas
     _texto = palabras;
+    //inicializaciones todas O(1)
 }
 
 string Editor::texto() const {
-    int i=0;
-    string texto = "";
-    if (this->_texto.size()!= 0) {
-        while(i < this->_texto.size()){
+    int i=0; //O(1)
+    string texto = ""; //O(1)
+    if (this->_texto.size()!= 0) {     //O(1)
+        while(i < this->_texto.size()){  // O(N)
             texto = texto + this->_texto[i] + " ";
         }
-        if (!texto.empty()) {  //si texto no esta vacio, saca el utlimo espacio
-            texto.pop_back();  
+        if (!texto.empty()) {  //O(1)
+            texto.pop_back();   //O(1)
         }
-        return texto;
+        return texto; //O(1)
     }
 
     return "";
 }
 
 const set<string>& Editor::vocabulario() const {
-    return this->_vocabulario;
+    return this->_vocabulario;  //O(1)
 }
 
 const set<string>& Editor::conectivos() const {
     
-    return this->_conectivos;
+    return this->_conectivos; //O(1)
 }
 
 int Editor::conteo_palabras() const { 
     /* Quitar este código y completar */
-    return this->_conteo_palabras; 
+    return this->_conteo_palabras;  //O(1)
 }
 
 int Editor::longitud() const { 
-	return this->_longitud; 
+	return this->_longitud;  //O(1)
 }
 
 vector<string> dividirTexto(const string texto) {
@@ -63,11 +64,13 @@ vector<string> dividirTexto(const string texto) {
     int start = 0;
     int actual = 0;
     string palabraActual = "";
-    for (int i = 0; i < texto.length() ; i++) {
+    //inicializaciones todas O(1)
+    for (int i = 0; i < texto.length() ; i++) { //O(|texto|)
         if ((texto[i] == space || i == texto.length() - 1) && i != 0) {
             palabraActual = texto.substr(start, i - 1 - start);
             palabras.push_back(palabraActual);
             start = i + 1;
+            //incializaciones todas O(1)
         }
     }
 
@@ -77,7 +80,7 @@ vector<string> dividirTexto(const string texto) {
 void Editor::agregar_atras(const string& oracion) {
    
     vector<string> nuevasPalabras = dividirTexto(oracion);
-    for (int i = 0; i< nuevasPalabras.size(); i++) {
+    for (int i = 0; i< nuevasPalabras.size(); i++) {   
         this->_texto.push_back(nuevasPalabras[i]);
     }
     
@@ -110,7 +113,7 @@ void Editor::borrar_posicion(int pos) {
 
     // Verificar si la palabra eliminada está en el conjunto de conectivos y actualizar la cantidad de palabras si es necesario
     if(this->_conectivos.find((this->_texto[pos]))!= this->_conectivos.end()){
-        this->_cant_de_palabras --;
+        this->_conteo_palabras --;
 
      // Actualizar las posiciones de las palabras que están después de la posición eliminada
     for(int i = pos; i<this->_texto.size();i++){
