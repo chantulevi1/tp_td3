@@ -55,10 +55,13 @@ private:
     vector<string> _texto;
     string palabra;
     int _conteo_palabras;
-    map<string, set<int>> _posiciones;  // Mapa de palabras y sus posiciones
+    std::unordered_map<std::string, std::set<int>> _posiciones;  // Mapa de palabras y sus posiciones
     int _cant_de_palabras;  // Cantidad total de palabras (excluyendo conectivos)
 
     
+    //f auxiliar
+    std::vector<std::string> obtenerPalabras(const std::string& texto) const;
+
 };
 
 #endif // __EDITOR_H__
