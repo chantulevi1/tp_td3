@@ -1,31 +1,35 @@
 2. 
 Editor.h debe cumplir:
-La cantidad de elementos del conjunto conectivos debe mayor o igual a 0. 
+La cantidad de elementos del conjunto conectivos debe ser mayor o igual a 0. 
 el numero longitud es igual a la cantidad de palabras que hay en el vector _texto y debe mayor o igual a 0.
-vocabulario son palabras que pertenecen a  _texto pero no a conectivos
-Los strings de _posiciones pertenecen al vector _texto
+vocabulario son palabras que pertenecen a _texto pero no a conectivos
+Todos los strings de _posiciones pertenecen al vector _texto
 pos es una posicion valida de _texto
-el numero de conteo_palabras es igual a  la cantidad de elementos de vocabulario
+el numero de conteo_palabras es igual a la cantidad de elementos de vocabulario
 la cantidad de elementos de _posiciones es mayor o igual a 0
-la cantidad de caracteres de texto es mayor o igual a 0
+la cantidad de caracteres del string texto es mayor o igual a 0
 la cantidad de elementos del vector _texto es mayor o igual a 0
 Todos los valores asociados a una clave de _posiciones, son posiciones del vector _texto donde se encuntran las palabras de _posiciones
-
+Todos los elementos del vector _texto son substrings del string texto
 3.
-
  |conectivos| >= 0 
  longitud = |_texto| >= 0 
- (forall i)(0<i<=|vocabulario|)(exists j)(0<j<|_texto|) and (vocabulario[i]=_texto[j]) and B(texto[j] perteneceA conectivos)=0
- (forall i) (0<i<|_posiciones|) (exists j)(0<j< |_texto|) and (_posiciones.key[i]=_texto[j])
+ (forall i: int)(0<i<=|vocabulario|)(exists j)(0<j<|_texto|) and (vocabulario[i]=_texto[j]) and perteneceA(s: vocabulario.[i], conectivos)=false
+perteneceA(s:vector<char>, set<string> conectivos)=
+(exists i:int,j:int)and(B(conectivos[i][j]==s[j]))=1
+ (forall i: int) (0<i<|_posiciones|) (exists j)(0<j< |_texto|) and (_posiciones.key[i]=_texto[j])
  0 <= pos < _texto.size()
  _conteo_palabras = |vocabulario| >= 0 
  |_texto| >= 0
  |texto| >= 0
  |_posiciones| >= 0 
- (forall i)(0<i<|_texto|)(exists _posiciones.key) and (_texto[i] = _posiciones.key) 
- and (forall j in set<values>)(exists _texto[j]) 
+ (forall i: int)(0<i<|_texto|)(exists _posiciones.key) and (_texto[i] = _posiciones.key) 
+ and (forall j: int in set<values>)(exists _texto[j]) 
+(forall i: int )(0<i<|_texto|)(esSubStr(texto, _texto[i])=true)
+esSubStr(string s1:longstring, string s2:smallString)=
+(forall j:int exists k: int)(0<j<|smallString|-1) and B(s2[j]==s1[k])=true and B(s2[j]+1==s1[k]+1)
 
- 
+
  Ejemplo que cumple: 
  texto = "pedido de limpieza de vereda en la ciudad"
  _texto = {pedido; de ; limpieza ; ; de; vereda ; en ; la ; ciudad}

@@ -379,7 +379,6 @@ std::vector<std::string> Editor::obtenerPalabras(const std::string& texto) const
 
     return _texto;
 
-
 // La complejidad algorítmica es O(long texto) porque recorre el texto y agrega cada palabra al vector.
 }
 
