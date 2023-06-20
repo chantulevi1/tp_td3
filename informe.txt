@@ -1,5 +1,6 @@
 2. 
 Editor.h debe cumplir:
+string texto solo tiene letras minusculas/espacios sin comas, signos de puntuacion, sin mayusculas, sin ñ
 La cantidad de elementos del conjunto conectivos debe ser mayor o igual a 0. 
 el numero longitud es igual a la cantidad de palabras que hay en el vector _texto y debe mayor o igual a 0.
 vocabulario son palabras que pertenecen a _texto pero no a conectivos
@@ -12,6 +13,8 @@ la cantidad de elementos del vector _texto es mayor o igual a 0
 Todos los valores asociados a una clave de _posiciones, son posiciones del vector _texto donde se encuntran las palabras de _posiciones
 Todos los elementos del vector _texto son substrings del string texto
 3.
+(forall int:i)(0<i<| texto|)(exists k:int)(0<k<|alfabeto|)(alfabeto[k]==texto[i]) 
+alfabeto= {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,q,r,s,t,u,v,w,x,y,z' ',}
  |conectivos| >= 0 
  longitud = |_texto| >= 0 
  (forall i: int)(0<i<=|vocabulario|)(exists j)(0<j<|_texto|) and (vocabulario[i]=_texto[j]) and perteneceA(s: vocabulario.[i], conectivos)=false
@@ -43,7 +46,7 @@ esSubStr(string s1:longstring, string s2:smallString)=
  
 Ejemplo que no cumple:
 texto = "resumen capa de enlace" 
-_texto = {"resumen", "capa", "de", "enlace"}
+_texto = {"arbusto", "capa", "de", "enlace"}
 _posiciones = [{resumen, 0}; {capa, 1}; {de,2}; {enlace, 3}]
 conectivos = "de"
 vocabulario = {"cami" ; "agustin" , "gervasio"; "valen"} 
