@@ -57,10 +57,9 @@ private:
     int _conteo_palabras;// Cantidad total de palabras (excluyendo conectivos)
     map<std::string, std::set<int>> _posiciones;  // Mapa de palabras y sus posiciones
     
-
     
     //f auxiliar
-    std::vector<std::string> obtenerPalabras(const std::string& texto) const;
+    std::vector<std::string> dividirTexto(const std::string& texto) const;
 
 };
 
